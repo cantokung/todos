@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Todo List App</title>
+<script defer src="runtime.bundle.js"></script><script defer src="index.bundle.js"></script></head>
+<body>
+  <div id="app">
+    <div class="sidebar">
+      <button id="add-task-btn">Add Task</button>
+      <div class="inbox-section">
+        <button id="inbox-btn">Inbox</button>
+        <button id="today-btn">Today</button>
+        <button id="upcoming-btn">Upcoming</button>
+      </div>
+      <div class="task-type-section">
+        <button id="gym-btn">Gym</button>
+        <button id="work-btn">Work</button>
+        <button id="personal-btn">Personal</button>
+        <button id="family-btn">Family</button>
+      </div>
+    </div>
+    <div class="main-content">
+      <!-- This is where your tasks will be rendered -->
+    </div>
+  </div>
+
+  <dialog id="add-task-dialog">
+    <form method="dialog" class="add-task-form">
+      <h2>Add New Task</h2>
+      <label for="title-input">Title:</label>
+      <input type="text" id="title-input" name="title" required>
+      <label for="description-input">Description:</label>
+      <input type="text" id="description-input" name="description">
+      <label for="due-date-input">Due Date:</label>
+      <input type="date" id="due-date-input" name="dueDate" required>
+      <label for="priority-input">Priority:</label>
+      <select id="priority-input" name="priority" required>
+        <option value="high">High</option>
+        <option value="medium">Medium</option>
+        <option value="low">Low</option>
+      </select>
+      <label for="type-input">Type:</label>
+      <select id="type-input" name="type" required>
+        <option value="personal">Personal</option>
+        <option value="work">Work</option>
+        <option value="gym">Gym</option>
+        <option value="family">Family</option>
+      </select>
+      <label for="notes-input">Notes:</label>
+      <textarea id="notes-input" name="notes"></textarea>
+      <div class="dialog-buttons">
+        <button type="submit">Submit</button>
+        <button type="button" id="cancel-btn">Cancel</button>
+      </div>
+    </form>
+  </dialog>
+</body>
+</html>
