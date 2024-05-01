@@ -1,5 +1,5 @@
 // src/domHandler.js
-import { addTodoItem, handleProjectClick } from './index.js';
+import { addTodoItem, handleProjectClick, deleteTodoItem, editTodoItem } from './index.js';
 
 // Get references to DOM elements
 const addTaskBtn = document.getElementById('add-task-btn');
@@ -89,6 +89,7 @@ function createTodoItemElement(todoItem) {
   editButton.addEventListener('click', () => {
       // Handle edit functionality
       console.log('Edit button clicked');
+      openEditModal(todoItem);
   });
 
   const markCompleteButton = document.createElement('button');
@@ -105,6 +106,7 @@ function createTodoItemElement(todoItem) {
   deleteButton.addEventListener('click', () => {
       // Handle delete functionality
       console.log('Delete button clicked');
+      deleteTodoItem(todoItem);
   });
 
   buttonsContainer.appendChild(editButton);
@@ -123,6 +125,49 @@ function createTodoItemElement(todoItem) {
   }
 
   return todoItemElement;
+}
+
+function openEditModal(todoItem) {
+  document.getElementById('edit-title-input').value = todoItem.title;
+  document.getElementById('edit-description-input').value = todoItem.description;
+  document.getElementById('edit-due-date-input').value = todoItem.dueDate;
+  document.getElementById('edit-priority-input').value = todoItem.priority;
+  document.getElementById('edit-type-input').value = todoItem.type;
+  document.getElementById('edit-notes-input').value = todoItem.notes;
+
+  const editTaskForm = document.querySelector('.edit-task-form');
+  editTaskForm.dataset.todoIndex = todoItems.indexOf(todoItem);
+
+  const editTaskDialog = document.getElementById('edit-task-dialog');
+  editTaskDialog.showModal();
+}
+
+const editTaskForm = document.querySelector('.edit-task-form');
+editTaskForm.addEventListener('submit', handleEditTask);
+
+
+function handleEditTask(event) {
+  event.preventDefault();
+
+  const index = parseInt(editTaskForm.dataset.todoIndex);
+  const title = document.getElementById('edit-title-input').value;
+  const description = document.getElementById('edit-description-input').value;
+  const dueDate = document.getElementById('edit-due-date-input').value;
+  const priority = document.getElementById('edit-priority-input').value;
+  const type = document.getElementById('edit-type-input').value;
+  const notes = document.getElementById('edit-notes-input').value;
+
+  editTodoItem(index, title, description, dueDate, priority, type, notes);
+  closeEditModal();
+}
+
+const cancelEditBtn = document.getElementById('cancel-edit-btn');
+cancelEditBtn.addEventListener('click', closeEditModal);
+
+function closeEditModal() {
+  const editTaskDialog = document.getElementById('edit-task-dialog');
+  editTaskDialog.close();
+  editTaskForm.reset();
 }
 
 function openModal() {

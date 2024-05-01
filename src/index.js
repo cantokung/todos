@@ -70,5 +70,25 @@ function renderApp(selectedProject, todoItems) {
     mainContentDiv.appendChild(todoItemsContainer);
 }
 
+export function deleteTodoItem(todoItem) {
+    const index = todoItems.indexOf(todoItem);
+    if (index !== -1) {
+      todoItems.splice(index, 1);
+      renderProject(projects[0]);
+    }
+}
+
+export function editTodoItem(index, title, description, dueDate, priority, type, notes) {
+    if (index >= 0 && index < todoItems.length) {
+      const todoItem = todoItems[index];
+      todoItem.title = title;
+      todoItem.description = description;
+      todoItem.dueDate = dueDate;
+      todoItem.priority = priority;
+      todoItem.type = type;
+      todoItem.notes = notes;
+      renderProject(projects[0]);
+    }
+}
 // Initialize the app when the DOM content is loaded
 document.addEventListener('DOMContentLoaded', initializeApp);
