@@ -147,18 +147,22 @@ body {
     background-color: rgba(0, 0, 0, 0.6);
   }
   
-  .add-task-form {
+  .add-task-form,
+  .edit-task-form {
     padding: 20px;
   }
   
-  .add-task-form h2 {
+  
+  .add-task-form h2,
+  .edit-task-form h2 {
     margin-top: 0;
     margin-bottom: 20px;
     font-size: 22px;
     color: #202124;
   }
   
-  .add-task-form label {
+  .add-task-form label,
+  .edit-task-form label {
     display: block;
     margin-bottom: 8px;
     font-size: 14px;
@@ -167,7 +171,10 @@ body {
   
   .add-task-form input,
   .add-task-form select,
-  .add-task-form textarea {
+  .add-task-form textarea,
+  .edit-task-form input,
+  .edit-task-form select,
+  .edit-task-form textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 16px;
@@ -178,7 +185,8 @@ body {
     color: #202124;
   }
   
-  .add-task-form button {
+  .add-task-form button,
+  .edit-task-form button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
@@ -187,22 +195,26 @@ body {
     transition: background-color 0.3s;
   }
   
-  .add-task-form button[type="submit"] {
+  .add-task-form button[type="submit"],
+  .edit-task-form button[type="submit"] {
     background-color: #1a73e8;
     color: white;
     margin-right: 10px;
   }
   
-  .add-task-form button[type="submit"]:hover {
+  .add-task-form button[type="submit"]:hover,
+  .edit-task-form button[type="submit"]:hover {
     background-color: #1765cc;
   }
   
-  .add-task-form button[type="button"] {
+  .add-task-form button[type="button"],
+  .edit-task-form button[type="button"] {
     background-color: #f1f3f4;
     color: #202124;
   }
   
-  .add-task-form button[type="button"]:hover {
+  .add-task-form button[type="button"]:hover,
+  .edit-task-form button[type="button"]:hover {
     background-color: #e8eaed;
   }
 
@@ -291,4 +303,6 @@ body {
     background-color: #e0e0e0;
     text-decoration: line-through;
 }
+
+
   /* ... */

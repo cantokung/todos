@@ -60,27 +60,27 @@
   <dialog id="edit-task-dialog">
     <form method="dialog" class="edit-task-form">
       <h2>Edit Task</h2>
-      <label for="title-input">Title:</label>
-      <input type="text" id="title-input" name="title" required>
-      <label for="description-input">Description:</label>
-      <input type="text" id="description-input" name="description">
-      <label for="due-date-input">Due Date:</label>
-      <input type="date" id="due-date-input" name="dueDate" required>
-      <label for="priority-input">Priority:</label>
-      <select id="priority-input" name="priority" required>
+      <label for="edit-title-input">Title:</label>
+      <input type="text" id="edit-title-input" name="title" required>
+      <label for="edit-description-input">Description:</label>
+      <input type="text" id="edit-description-input" name="description">
+      <label for="edit-due-date-input">Due Date:</label>
+      <input type="date" id="edit-due-date-input" name="dueDate" required>
+      <label for="edit-priority-input">Priority:</label>
+      <select id="edit-priority-input" name="priority" required>
         <option value="high">High</option>
         <option value="medium">Medium</option>
         <option value="low">Low</option>
       </select>
-      <label for="type-input">Type:</label>
-      <select id="type-input" name="type" required>
+      <label for="edit-type-input">Type:</label>
+      <select id="edit-type-input" name="type" required>
         <option value="personal">Personal</option>
         <option value="work">Work</option>
         <option value="gym">Gym</option>
         <option value="family">Family</option>
       </select>
-      <label for="notes-input">Notes:</label>
-      <textarea id="notes-input" name="notes"></textarea>
+      <label for="edit-notes-input">Notes:</label>
+      <textarea id="edit-notes-input" name="notes"></textarea>
       <div class="dialog-buttons">
         <button type="submit">Save</button>
         <button type="button" id="cancel-edit-btn">Cancel</button>

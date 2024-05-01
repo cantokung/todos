@@ -53,7 +53,7 @@ export function renderTodoItems(todoItems) {
 
   // Render each todo item
   todoItems.forEach(todoItem => {
-    const todoItemElement = createTodoItemElement(todoItem);
+    const todoItemElement = createTodoItemElement(todoItem, todoItems);
     todoItemsContainer.appendChild(todoItemElement);
   });
 
@@ -62,7 +62,7 @@ export function renderTodoItems(todoItems) {
 }
 
 // Function to create a todo item element
-function createTodoItemElement(todoItem) {
+function createTodoItemElement(todoItem, todoItems) {
   const todoItemElement = document.createElement('div');
   todoItemElement.classList.add('todo-item');
 
@@ -89,7 +89,7 @@ function createTodoItemElement(todoItem) {
   editButton.addEventListener('click', () => {
       // Handle edit functionality
       console.log('Edit button clicked');
-      openEditModal(todoItem);
+      openEditModal(todoItem, todoItems);
   });
 
   const markCompleteButton = document.createElement('button');
@@ -127,7 +127,7 @@ function createTodoItemElement(todoItem) {
   return todoItemElement;
 }
 
-function openEditModal(todoItem) {
+function openEditModal(todoItem, todoItems) {
   document.getElementById('edit-title-input').value = todoItem.title;
   document.getElementById('edit-description-input').value = todoItem.description;
   document.getElementById('edit-due-date-input').value = todoItem.dueDate;
